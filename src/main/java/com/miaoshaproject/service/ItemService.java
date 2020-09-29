@@ -1,5 +1,6 @@
 package com.miaoshaproject.service;
 
+import com.miaoshaproject.dataobject.ItemCountDO;
 import com.miaoshaproject.error.BusinessException;
 import com.miaoshaproject.service.model.ItemModel;
 
@@ -16,4 +17,8 @@ public interface ItemService {
     ItemModel getItemById(Integer id);
 
     void saveItem(ItemModel itemModel) throws Exception;
+
+    boolean decreaseStock(Integer itemId,Integer amount);
+
+//    List<ItemCountDO> countItem();
 }

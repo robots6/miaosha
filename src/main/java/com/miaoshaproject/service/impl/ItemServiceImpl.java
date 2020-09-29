@@ -2,6 +2,7 @@ package com.miaoshaproject.service.impl;
 
 import com.miaoshaproject.dao.ItemDOMapper;
 import com.miaoshaproject.dao.ItemStockdDOMapper;
+import com.miaoshaproject.dataobject.ItemCountDO;
 import com.miaoshaproject.dataobject.ItemDO;
 import com.miaoshaproject.dataobject.ItemStockdDO;
 import com.miaoshaproject.error.BusinessException;
@@ -53,12 +54,31 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public void saveItem(ItemModel itemModel) throws Exception {
-        if(itemModel.getTitle().equals("abc")){
+        if (itemModel.getTitle().equals("abc")) {
             throw new Exception("手动异常");
         }
         System.out.println("save 完成");
 
     }
+
+    @Override
+    @Transactional
+    public boolean decreaseStock(Integer itemId, Integer amount) {
+        int affectedRow = itemStockdDOMapper.decreaseStock(itemId, amount);
+        if (affectedRow > 0) {
+            //更新库存成功
+            return true;
+        } else {
+            //更新库存失败
+            return false;
+        }
+
+    }
+
+//    @Override
+//    public List<ItemCountDO> countItem() {
+//        return itemDOMapper.countByTitle();
+//    }
 
     @Override
     @Transactional
@@ -97,6 +117,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public ItemModel getItemById(Integer id) {
+
         ItemDO itemDO = itemDOMapper.selectByPrimaryKey(id);
         if (itemDO == null) {
             return null;

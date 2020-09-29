@@ -2,6 +2,7 @@ package com.miaoshaproject.controller;
 
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.miaoshaproject.controller.viewobject.ItemVO;
+import com.miaoshaproject.dataobject.ItemCountDO;
 import com.miaoshaproject.error.BusinessException;
 import com.miaoshaproject.response.CommonReturntype;
 import com.miaoshaproject.service.ItemService;
@@ -55,6 +56,8 @@ public class ItemController extends BaseController {
         ItemModel itemModel = itemService.getItemById(id);
         ItemVO itemVO = convertVOFromModel(itemModel);
         return CommonReturntype.create(itemVO);
+//        List<ItemCountDO> itemCountDO = itemService.countItem();
+//        return  CommonReturntype.create(itemCountDO);
     }
 
     //商品列表页面浏览
