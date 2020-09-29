@@ -108,4 +108,20 @@
       img_url = #{imgUrl,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+
+  <resultMap id="CountResultMap" type="com.miaoshaproject.dataobject.ItemCountDO">
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="count" jdbcType="DOUBLE" property="count" />
+  </resultMap>
+  <sql id="Count_Column_List">
+    title, count
+  </sql>
+
+<!--  <select id="countByTitle" resultMap="CountResultMap">-->
+<!--    select title, count(*) as count-->
+<!--&lt;!&ndash;    <include refid="Count_Column_List" />&ndash;&gt;-->
+<!--    from item group by title where createTime>= :createTime;-->
+<!--  </select>-->
+
 </mapper>
