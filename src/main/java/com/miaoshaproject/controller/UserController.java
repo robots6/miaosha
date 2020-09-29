@@ -34,10 +34,10 @@ public class UserController extends BaseController {
     //用户登陆接口
     @RequestMapping(value = "/login", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
     @ResponseBody
-    public CommonReturntype login(@RequestParam(name ="telephone")String telephone,
+    public CommonReturntype login(@RequestParam(name ="telphone")String telphone,
                             @RequestParam(name="password")String password) throws BusinessException {
         //入参校验
-        if(org.apache.commons.lang3.StringUtils.isEmpty(telephone)|| StringUtils.isEmpty(password)){
+        if(org.apache.commons.lang3.StringUtils.isEmpty(telphone)|| StringUtils.isEmpty(password)){
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
         }
 

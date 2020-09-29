@@ -9,7 +9,7 @@ public class UserDO {
 
     private Integer age;
 
-    private String telephone;
+    private String telphone;
 
     private String registerMode;
 
@@ -48,11 +48,11 @@ public class UserDO {
     }
 
     public String getTelephone() {
-        return telephone;
+        return telphone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone == null ? null : telephone.trim();
+    public void setTelephone(String telphone) {
+        this.telphone = telphone == null ? null : telphone.trim();
     }
 
     public String getRegisterMode() {

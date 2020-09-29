@@ -62,6 +62,14 @@ public class UserServiceImpl implements UserService {
         return;
     }
 
+    @Override
+    public void validateLogin(String telphone, String password) {
+        //通过用户手机获取用户信息
+
+        //比对用后信息内加密的密码是否和传输进来的密码相匹配
+
+    }
+
     private UserPasswordDO convertPasswordFromModel(UserModel userModel) {
         if (userModel == null) {
             return null;

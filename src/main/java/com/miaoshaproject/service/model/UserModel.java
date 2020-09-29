@@ -16,7 +16,7 @@ public class UserModel {
     @Max(value = 150,message = "年龄不能超过150岁")
     private Integer age;
     @NotBlank(message = "手机号不能为空")
-    private String telephone;
+    private String telphone;
     private String registerMode;
     private String thirdPartyId;
     @NotBlank(message = "密码不能为空")
@@ -64,11 +64,11 @@ public class UserModel {
 
 
     public String getTelephone() {
-        return telephone;
+        return telphone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public void setTelephone(String telphone) {
+        this.telphone = telphone;
     }
 
     public String getRegisterMode() {
